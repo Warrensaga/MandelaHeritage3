@@ -220,6 +220,8 @@ export default function InstagramFeed() {
                 autoPlay={true}
                 muted={true}
                 loop={true}
+                controls={false}
+                showOverlayControls={true}
               />
 
               {/* Lower description and spec cards */}
