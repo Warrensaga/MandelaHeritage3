@@ -124,7 +124,7 @@ export default function BestSellers({ wishlist, onWishlistToggle }: BestSellersP
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {filteredProducts.map((p) => (
-                <motion.div key={p.id} variants={cardVariants}>
+                <motion.div key={p.id} variants={cardVariants} className="flex flex-col h-full">
                   <ProductCard
                     product={p}
                     showLearnMore={true}
