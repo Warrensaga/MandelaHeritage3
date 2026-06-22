@@ -12,28 +12,28 @@ import {
   Clock, 
   PhoneCall
 } from 'lucide-react';
-import VideoPlayer from '../components/VideoPlayer';
+import ScrollAnimate from '../components/ScrollAnimate';
 
-interface ShowroomVideo {
+interface ShowroomStage {
   id: number;
   title: string;
   subtitle: string;
   category: string;
   description: string;
-  videoUrl: string;
+  imageUrl: string;
   likes: string;
   timberSource: string;
   location: string;
 }
 
-const SHOWROOM_PLAYLIST: ShowroomVideo[] = [
+const SHOWROOM_STAGES: ShowroomStage[] = [
   {
     id: 1,
     title: "Twin-Slat Dining & Credenza Set",
     subtitle: "Showroom Exhibition Masterwork",
     category: "01. SHOWROOM EXHIBIT",
-    description: "Explore our physical showroom tour in Nairobi. This cinematic display showcases the elegant vertical-slat central pedestal table, circular-backed hand-upholstered premium linen chairs, and the matching bespoke groove-fronted buffet sideboard structured against traditional earthy backdrops.",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-luxury-dining-table-in-a-modern-room-41581-large.mp4",
+    description: "Explore our physical showroom gallery in Nairobi. This elegant display showcases the vertical-slat central pedestal table, circular-backed hand-upholstered premium linen chairs, and the matching bespoke groove-fronted buffet sideboard structured against traditional earthy backdrops.",
+    imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
     likes: "4.9K Likes",
     timberSource: "Mvule Hardwood & Mahogany",
     location: "Nairobi Headquarters Showroom"
@@ -43,8 +43,8 @@ const SHOWROOM_PLAYLIST: ShowroomVideo[] = [
     title: "Staged Residential Fine Dining Staging",
     subtitle: "Completed Home Installation",
     category: "02. COMPLETED RESIDENCY",
-    description: "A close-up high-fidelity walkthrough of a fully completed private residential installation in Kilimani. Watch how our custom-crafted timber frames, brass accent details, premium finish surfaces, and organic botanicals combine to establish warmth and immediate structural elegance.",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-decorating-a-table-for-dinner-with-plates-34284-large.mp4",
+    description: "A close-up high-fidelity detail of a fully completed private residential installation in Kilimani. Discover how our custom-crafted timber frames, brass accent details, premium finish surfaces, and organic botanicals combine to establish warmth and immediate structural elegance.",
+    imageUrl: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80",
     likes: "3.2K Likes",
     timberSource: "Solid African Walnut",
     location: "Residential Suite, Kilimani"
@@ -55,7 +55,7 @@ const SHOWROOM_PLAYLIST: ShowroomVideo[] = [
     subtitle: "Contemporary Architectural Living",
     category: "03. DESIGN CONCEPTS",
     description: "Experience the spacious layout of our modern living room configurations. Showcasing premium jointing systems, floating solid wood shelving units, low-profile central tea tables, and custom-cushioned loungers built to endure generations of laughter.",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-with-elegant-minimalist-furniture-41578-large.mp4",
+    imageUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=80",
     likes: "2.8K Likes",
     timberSource: "Bespoke Nairobi Cedar & Teak",
     location: "Lounge Concept Staging"
@@ -64,25 +64,26 @@ const SHOWROOM_PLAYLIST: ShowroomVideo[] = [
 
 export default function InstagramFeed() {
   const [activeIdx, setActiveIdx] = useState(0);
-  const activeVideo = SHOWROOM_PLAYLIST[activeIdx];
-
+  const activeStage = SHOWROOM_STAGES[activeIdx];
 
   return (
     <section id="showroom-cinematic-section" className="bg-[#FAF7F2] py-20 md:py-28 border-y border-brand-border/40 overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         
-        {/* Header Block Section */}
-        <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
-          <span className="font-mono text-xs font-bold tracking-widest text-[#C8872A] uppercase mb-3 block">
-            CINEMATIC SHOWROOM WALKTHROUGH
-          </span>
-          <h2 className="font-serif text-3.5xl sm:text-4.5xl font-bold text-[#1C1A14] tracking-tight leading-tight mb-4">
-            Craftsmanship <span className="text-[#C8872A] italic font-normal">in Perpetual Motion</span>
-          </h2>
-          <p className="font-sans text-sm md:text-base text-[#8A8070] leading-relaxed">
-            Move past flat photographs. Experience the rich depths of real timber grain, masterfully hand-slatted sideboards, and ambient dining stagers through high-resolution cinematic viewports.
-          </p>
-        </div>
+        {/* Header Block Section with Animation */}
+        <ScrollAnimate variant="fadeUp" duration={0.6}>
+          <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
+            <span className="font-mono text-xs font-bold tracking-widest text-[#C8872A] uppercase mb-3 block">
+              CURATED SHOWROOM GALLERY
+            </span>
+            <h2 className="font-serif text-3.5xl sm:text-4.5xl font-bold text-[#1C1A14] tracking-tight leading-tight mb-4">
+              Craftsmanship <span className="text-[#C8872A] italic font-normal">in Exquisite Form</span>
+            </h2>
+            <p className="font-sans text-sm md:text-base text-[#8A8070] leading-relaxed">
+              Explore our physical showroom and staged custom furniture pieces. Experience the rich depths of real organic timber grain, masterfully hand-slatted sideboards, and ambient dining stagers through premium detailed photography.
+            </p>
+          </div>
+        </ScrollAnimate>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
           
@@ -107,18 +108,18 @@ export default function InstagramFeed() {
               </div>
 
               <span className="font-mono text-[10px] font-bold tracking-wider text-[#8A8070] uppercase mb-4">
-                CHOOSE STAGING DEMO
+                CHOOSE STAGING GALLERY
               </span>
 
               {/* Showcase Selector playlist tabs */}
               <div className="w-full flex flex-col gap-3.5 mb-8">
-                {SHOWROOM_PLAYLIST.map((video, idx) => {
+                {SHOWROOM_STAGES.map((stage, idx) => {
                   const isActive = idx === activeIdx;
                   return (
                     <button
-                      key={video.id}
+                      key={stage.id}
                       onClick={() => setActiveIdx(idx)}
-                      id={`tab-btn-${video.id}`}
+                      id={`tab-btn-${stage.id}`}
                       className={`w-full flex items-start gap-4 p-4 rounded-xl border text-left transition-all duration-300 cursor-pointer ${
                         isActive 
                           ? 'bg-white border-[#C8872A]/70 shadow-[0_4px_24px_rgba(43,34,22,0.06)]' 
@@ -128,12 +129,12 @@ export default function InstagramFeed() {
                       <div className={`mt-0.5 w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-colors ${
                         isActive ? 'bg-[#C8872A] text-white font-bold text-xs' : 'bg-[#E8E0D0]/60 text-[#8A8070] text-xs'
                       }`}>
-                        {video.id}
+                        {stage.id}
                       </div>
                       <div className="flex-grow">
                         <div className="flex items-center justify-between gap-2">
                           <span className="block font-mono text-[9px] tracking-widest text-[#C8872A] uppercase font-bold">
-                            {video.category}
+                            {stage.category}
                           </span>
                           {isActive && (
                             <span className="flex h-1.5 w-1.5 relative">
@@ -143,10 +144,10 @@ export default function InstagramFeed() {
                           )}
                         </div>
                         <span className="block font-serif text-sm font-bold text-[#1C1A14] mt-0.5">
-                          {video.title}
+                          {stage.title}
                         </span>
                         <span className="block text-xs text-[#8A8070] mt-1.5 leading-relaxed line-clamp-2">
-                          {video.description}
+                          {stage.description}
                         </span>
                       </div>
                     </button>
@@ -167,20 +168,20 @@ export default function InstagramFeed() {
                 </span>
               </div>
               <a
-                href="https://wa.me/254700000000"
+                href="https://wa.me/254701333358"
                 target="_blank"
                 rel="noreferrer"
                 id="virtual-tour-btn"
                 className="group inline-flex items-center justify-center gap-2 bg-[#1C1A14] hover:bg-[#C8872A] text-white py-3.5 px-6 rounded-full font-sans font-bold text-[11px] tracking-wider uppercase transition-all duration-300 shadow-sm"
               >
                 <PhoneCall className="w-3.5 h-3.5" />
-                Book Live Video Call
+                Book Live Showroom Tour
                 <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
               </a>
             </div>
           </motion.div>
 
-          {/* Right Wide Cinematic Player Block - Responsive, Self-Hosted */}
+          {/* Right Wide Staging Showcase Block */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -198,48 +199,51 @@ export default function InstagramFeed() {
                   </div>
                   <div>
                     <span className="block text-[11px] font-serif font-bold text-[#1C1A14]">
-                      {activeVideo.title}
+                      {activeStage.title}
                     </span>
                     <span className="block text-[9px] font-mono tracking-widest text-[#8A8070] uppercase">
-                      {activeVideo.location}
+                      {activeStage.location}
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
                   <span className="bg-[#FAF7F2] border border-[#E8E0D0] text-[#C8872A] font-mono text-[9px] tracking-wider px-2 py-1 rounded-md uppercase font-semibold">
-                    TIMBER: {activeVideo.timberSource}
+                    TIMBER: {activeStage.timberSource}
                   </span>
                 </div>
               </div>
 
-              {/* Robust HTML5 Self-Hosted Widescreen Video Player */}
-              <VideoPlayer 
-                src={activeVideo.videoUrl} 
-                className="w-full aspect-video rounded-2xl overflow-hidden shadow-md border border-[#E8E0D0]/30"
-                autoPlay={true}
-                muted={true}
-                loop={true}
-                controls={false}
-                showOverlayControls={true}
-              />
+              {/* Seamless High-Resolution Responsive Image View with Soft Fade Transitions */}
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-md border border-[#E8E0D0]/30 bg-gray-50">
+                <motion.img 
+                  key={activeStage.id}
+                  src={activeStage.imageUrl} 
+                  alt={activeStage.title}
+                  className="w-full h-full object-cover"
+                  initial={{ opacity: 0, scale: 1.02 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  referrerPolicy="no-referrer"
+                />
+              </div>
 
               {/* Lower description and spec cards */}
               <div className="mt-5 text-left bg-[#FAF7F2] border border-[#E8E0D0]/40 rounded-xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div className="max-w-md">
                   <h4 className="font-serif text-sm font-bold text-[#1C1A14] flex items-center gap-1.5">
                     <Sparkles className="w-4 h-4 text-[#C8872A] shrink-0" />
-                    {activeVideo.subtitle}
+                    {activeStage.subtitle}
                   </h4>
                   <p className="text-xs text-[#8A8070] mt-1 leading-relaxed">
-                    {activeVideo.description}
+                    {activeStage.description}
                   </p>
                 </div>
                 <div className="flex items-center gap-2.5 bg-white border border-[#E8E0D0]/30 rounded-lg py-2 px-3 self-start md:self-center shrink-0">
                   <Clock className="w-4 h-4 text-[#C8872A]" />
                   <div>
-                    <span className="block text-[8px] font-mono tracking-wider text-[#8A8070] uppercase">REEL LENGTH</span>
-                    <span className="block font-serif text-xs font-bold text-[#1C1A14]">30 Seconds Loop</span>
+                    <span className="block text-[8px] font-mono tracking-wider text-[#8A8070] uppercase">EXHIBIT HOURS</span>
+                    <span className="block font-serif text-xs font-bold text-[#1C1A14]">9:00 AM - 6:00 PM</span>
                   </div>
                 </div>
               </div>

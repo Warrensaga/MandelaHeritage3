@@ -6,6 +6,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Leaf, PenTool, Award } from 'lucide-react';
+import ScrollAnimate from '../components/ScrollAnimate';
 
 interface FeatureItem {
   id: string;
@@ -43,23 +44,25 @@ const features: FeatureItem[] = [
 
 export default function WhyUs() {
   return (
-    <section id="why-us-decor-section" className="bg-brand-bg py-24 select-none border-b border-brand-border/45">
+    <section id="why-us-decor-section" className="bg-brand-bg py-24 select-none border-b border-brand-border/45 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
 
-        {/* Section Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-20 items-end text-left">
-          <div>
-            <span className="font-mono text-xs font-bold tracking-widest text-brand-accent uppercase mb-1 block">
-              MANDELA ADVANTAGES
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark tracking-wide">
-              Why Choose Mandela Heritage?
-            </h2>
+        {/* Section Header with Animation */}
+        <ScrollAnimate variant="fadeUp" duration={0.6}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-20 items-end text-left">
+            <div>
+              <span className="font-mono text-xs font-bold tracking-widest text-brand-accent uppercase mb-1 block">
+                MANDELA ADVANTAGES
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark tracking-wide">
+                Why Choose Mandela Heritage?
+              </h2>
+            </div>
+            <p className="font-serif text-lg sm:text-xl text-brand-accent italic font-normal leading-relaxed lg:text-right max-w-md ml-auto">
+              "Your absolute lifelong comfort and satisfaction drives every joint and stitch we seal."
+            </p>
           </div>
-          <p className="font-serif text-lg sm:text-xl text-brand-accent italic font-normal leading-relaxed lg:text-right max-w-md ml-auto">
-            "Your absolute lifelong comfort and satisfaction drives every joint and stitch we seal."
-          </p>
-        </div>
+        </ScrollAnimate>
 
         {/* Grid of 4 Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-left">

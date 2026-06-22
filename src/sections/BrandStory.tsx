@@ -5,6 +5,7 @@
 
 import { motion } from 'framer-motion';
 import { Check, Sofa, Sparkles, BookOpen } from 'lucide-react';
+import NumberCounter from '../components/NumberCounter';
 
 export default function BrandStory() {
   const checkmarks = [
@@ -58,9 +59,11 @@ export default function BrandStory() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="absolute top-10 right-4 bg-brand-accent text-brand-dark p-5 rounded-2xl shadow-xl border border-white/20 select-none text-left flex flex-col"
+            className="absolute top-10 right-4 bg-brand-accent text-brand-dark p-5 rounded-2xl shadow-xl border border-white/20 select-none text-left flex flex-col font-mono"
           >
-            <span className="font-serif font-bold text-3xl leading-none">15</span>
+            <span className="font-serif font-bold text-3xl leading-none">
+              <NumberCounter value={15} duration={1.2} />
+            </span>
             <span className="font-mono text-[9px] font-bold tracking-widest uppercase leading-tight mt-1">YRS ACTIVE</span>
             <span className="font-sans text-[11px] font-medium leading-tight text-brand-dark/80 max-w-[80px] mt-0.5">TIMBER CRAFT</span>
           </motion.div>
